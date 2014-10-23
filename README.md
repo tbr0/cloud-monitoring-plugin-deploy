@@ -18,7 +18,7 @@ Default command:
 
 ###Modifiers
 You can edit the `group_vars/all` file if you want to change any of the defaults.  
-- Notification Plan will default to npManaged, but you can change it to npTechnicalContactsEmail or any notification plan that is created for the account.
+- Notification Plan will default to `npManaged`, but you can change it to `npTechnicalContactsEmail` or any notification plan that is created for the account.
 
 References:
 - [Rackspace Cloud Monitorin API - Agent Configuration File](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file)
