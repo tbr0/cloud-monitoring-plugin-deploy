@@ -1,9 +1,3 @@
-  - name: Check /etc/rackspace-monitoring-agent.conf.d/
-    file: dest=/etc/rackspace-monitoring-agent.conf.d/ state=directory owner=root group=root
-
-  - name: Check /usr/lib/rackspace-monitoring-agent/plugins
-    file: dest=/usr/lib/rackspace-monitoring-agent/plugins state=directory owner=root group=root
-
   - name: Download mysql_replication.py
     get_url: 
       url: https://raw.github.com/racker/rackspace-monitoring-agent-plugins-contrib/master/mysql_replication.py
