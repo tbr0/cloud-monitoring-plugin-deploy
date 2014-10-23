@@ -17,5 +17,5 @@ Default command:
 | port_check | host=localhost <br> port=22 | port_check.yml -e host=1.2.3.4 <br> port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"8.8.8.8","port":"53"}'
 
 References:
-- http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file
-- https://github.com/racker/rackspace-monitoring-agent-plugins-contrib
+- [Rackspace Cloud Monitorin API - Agent Config File](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file)
+- [Github for Cloud Monitoring Agent Plugins](https://github.com/racker/rackspace-monitoring-agent-plugins-contrib)
