@@ -7,14 +7,14 @@ Default command:
 ###Available playbooks 
 - mysql_slave.yml
 - holland_mysqldump.yml
-- port_check.yml (defaults to localhost:22)
+- port_check.yml
 
 ###Examples
 | Name | Arguments (defaults) | Examples
 | ---------- | ---------- | -------- |
 | mysql_slave | | mysql_slave.yml
 | holland_mysqldump | | holland_mysqldump.yml
-| port_check | host=localhost <br> port=*required* | port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"rackspace.com","port":"80"}'
+| port_check | host=localhost <br> port=**required** | port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"rackspace.com","port":"80"}'
 
 References:
 - [Rackspace Cloud Monitorin API - Agent Config File](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file)
