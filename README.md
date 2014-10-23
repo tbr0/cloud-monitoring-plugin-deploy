@@ -16,6 +16,10 @@ Default command:
 | holland_mysqldump | | holland_mysqldump.yml
 | port_check | host=localhost <br> port=**required** | port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"rackspace.com","port":"80"}'
 
+###Modifiers
+You can edit the `group_vars/all` file if you want to change any of the defaults.  
+- Notification Plan will default to npManaged, but you can change it to npTechnicalContactsEmail or any notification plan that is created for the account.
+
 References:
 - [Rackspace Cloud Monitorin API - Agent Config File](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file)
 - [Github for Cloud Monitoring Agent Plugins](https://github.com/racker/rackspace-monitoring-agent-plugins-contrib)

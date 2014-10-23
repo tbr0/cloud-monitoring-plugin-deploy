@@ -8,7 +8,7 @@ details     :
 alarms      :
     alarm1  :
         label                 : MySQL Replication Alarm
-        notification_plan_id  : npTechnicalContactsEmail
+        notification_plan_id  : {{notification_plan}} 
         criteria              : |
           if (metric['SLAVE_STATUS'] != 'ONLINE') {
             return new AlarmStatus(CRITICAL, 'MySQL Replication is OFFLINE.');

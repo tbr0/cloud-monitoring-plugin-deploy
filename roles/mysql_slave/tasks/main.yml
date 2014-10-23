@@ -8,5 +8,5 @@
     notify: restart rackspace-monitoring-agent
 
   - name: Copy mysql_replication.yaml
-    copy: src=mysql_replication.yaml dest=/etc/rackspace-monitoring-agent.conf.d/
+    template: src=mysql_replication.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/mysql_replication.yaml
     notify: restart rackspace-monitoring-agent

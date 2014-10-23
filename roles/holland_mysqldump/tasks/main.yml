@@ -8,5 +8,5 @@
     notify: restart rackspace-monitoring-agent
 
   - name: Copy holland_mysqldump.yaml 
-    copy: src=holland_mysqldump.yaml dest=/etc/rackspace-monitoring-agent.conf.d/
+    template: src=holland_mysqldump.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/holland_mysqldump.yaml
     notify: restart rackspace-monitoring-agent
