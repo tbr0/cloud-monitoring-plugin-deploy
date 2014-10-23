@@ -1,0 +1,12 @@
+  - name: Download port_check.py 
+    get_url: 
+      url: https://raw.githubusercontent.com/racker/rackspace-monitoring-agent-plugins-contrib/master/port_check.py 
+      dest: /usr/lib/rackspace-monitoring-agent/plugins/port_check.py
+      mode: 0744
+      owner: root
+      group: root
+    notify: restart rackspace-monitoring-agent
+
+  - name: Copy port_check.yaml
+    copy: src=port_check.yaml dest=/etc/rackspace-monitoring-agent.conf.d/
+    notify: restart rackspace-monitoring-agent

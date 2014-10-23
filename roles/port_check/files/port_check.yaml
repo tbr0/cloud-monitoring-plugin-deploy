@@ -1,0 +1,12 @@
+type        : agent.plugin
+label       : Port Check [{{port}}] 
+disabled    : false
+period      : 60
+timeout     : 30
+details     :
+    file    : port_check.py
+alarms      :
+    alarm1  :
+        label                 : Port Check [{{port}}] Alarm
+        notification_plan_id  : npTechnicalContactsEmail
+        criteria              : |
