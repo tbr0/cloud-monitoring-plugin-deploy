@@ -5,15 +5,15 @@ Default command:
 ```ansible-playbook -i hosts <playbook>```
 
 ###Available playbooks 
-- mysql_slave.yml
 - holland_mysqldump.yml
+- mysql_slave.yml
 - port_check.yml
 
 ###Examples
 | Name | Arguments (defaults) | Examples
 | ---------- | ---------- | -------- |
-| mysql_slave | | mysql_slave.yml
 | holland_mysqldump | | holland_mysqldump.yml
+| mysql_slave | | mysql_slave.yml
 | port_check | host=localhost <br> port=**required** | port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"rackspace.com","port":"80"}'
 
 ###Modifiers
