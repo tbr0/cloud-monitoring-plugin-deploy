@@ -1,6 +1,6 @@
 An ansible playbook to install Cloud Monitoring plugins on the localhost.   This guide will not go into how to install ansible or git for your system.
 
-Instructions:
+Default command:
 
 ```ansible-playbook -i hosts <playbook>```
 
@@ -10,7 +10,7 @@ Instructions:
 - port_check.yml (defaults to localhost:22)
 
 ###Examples
-|Playbook | Arguments (defaults) | Examples
+| Name | Arguments (defaults) | Examples
 | ---------- | ---------- | -------- |
 | mysql_slave | | mysql_slave.yml
 | holland_mysqldump | | holland_mysqldump.yml
