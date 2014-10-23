@@ -14,7 +14,7 @@ Instructions:
 | ---------- | ---------- | -------- |
 | mysql_slave.yml | none | `ansible-playbook -i hosts mysql_slave.yml`
 | holland_mysqldump.yml | none | `ansible-playbook -i hosts holland_mysqldump.yml`
-| port_check.yml | host, port | `ansible-playbook -i hosts port_check.yml -e port=8080` \n `ansible-playbook -i hosts port_check.yml -e host=8.8.8.81
+| port_check.yml | host, port | `ansible-playbook -i hosts port_check.yml -e port=8080` <br> `ansible-playbook -i hosts port_check.yml -e host=8.8.8.8`
 
 References:
 - http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file
