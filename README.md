@@ -1,7 +1,11 @@
-An ansible playbook to install Cloud Monitoring plugins.  Created for Managed Operations most used Cloud Monitoring needs.
+An ansible playbook to install Cloud Monitoring plugins.
 
-###Available tags
-- mysql_slave
+Instructions:
+
+```ansible-playbook -i hosts <playbook>```
+
+###Available playbooks 
+- mysql_slave.yml
 
 References:
 - http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file
