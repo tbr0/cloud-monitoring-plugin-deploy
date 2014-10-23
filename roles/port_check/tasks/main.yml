@@ -1,4 +1,5 @@
-  - fail: msg="Bailing out. This you to set the port." 
+  - name: "Check if port variable exists"
+    fail: msg="Bailing out. This you to set the port." 
     when: port is not defined
 
   - name: Download port_check.py 
