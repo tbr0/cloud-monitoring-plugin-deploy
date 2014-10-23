@@ -1,5 +1,5 @@
 type        : agent.plugin
-label       : Port Check [{{port}}] 
+label       : Port Check [{{host}}:{{port}}] 
 disabled    : false
 period      : 60
 timeout     : 30
@@ -8,7 +8,7 @@ details     :
     args    : [{{host}},{{port}}]
 alarms      :
     alarm-{{port}}  :
-        label                 : Port Check [{{port}}] Alarm
+        label                 : Port Check [{{host}}:{{port}}] Alarm
         notification_plan_id  : npTechnicalContactsEmail
         criteria              : |
           if (metric['status'] != 'OPEN') {
