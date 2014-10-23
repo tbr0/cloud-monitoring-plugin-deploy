@@ -12,8 +12,8 @@ Instructions:
 ###Examples
 |Playbook | Arguments (defaults) | Examples
 | ---------- | ---------- | -------- |
-| mysql_slave | | default
-| holland_mysqldump | | default
+| mysql_slave | | mysql_slave.yml
+| holland_mysqldump | | holland_mysqldump.yml
 | port_check | host=localhost <br> port=22 | port_check.yml -e host=1.2.3.4 <br> port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"8.8.8.8","port":"53"}'
 
 References:
