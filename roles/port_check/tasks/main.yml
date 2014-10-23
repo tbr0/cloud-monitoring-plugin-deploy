@@ -1,3 +1,6 @@
+  - fail: msg="Bailing out. This you to set the port." 
+    when: port is not defined
+
   - name: Download port_check.py 
     get_url: 
       url: https://raw.githubusercontent.com/racker/rackspace-monitoring-agent-plugins-contrib/master/port_check.py 
