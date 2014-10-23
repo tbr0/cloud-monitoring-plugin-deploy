@@ -12,9 +12,9 @@ Default command:
 ###Examples
 | Name | Arguments (defaults) | Examples
 | ---------- | ---------- | -------- |
-| holland_mysqldump | | holland_mysqldump.yml
-| mysql_slave | | mysql_slave.yml
-| port_check | host=localhost <br> port=**required** | port_check.yml -e port=8080 <br> port_check.yml -e '{"host":"rackspace.com","port":"80"}'
+| holland_mysqldump | | `holland_mysqldump.yml`
+| mysql_slave | | `mysql_slave.yml`
+| port_check | host=localhost <br> port=**required** | `port_check.yml -e port=8080` <br> `port_check.yml -e '{"host":"rackspace.com","port":"80"}'`
 
 ###Modifiers
 You can edit the `group_vars/all` file if you want to change any of the defaults.  
