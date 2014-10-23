@@ -11,3 +11,7 @@ alarms      :
         label                 : Port Check [{{port}}] Alarm
         notification_plan_id  : npTechnicalContactsEmail
         criteria              : |
+          if (metric['status'] != 'OPEN') {
+            return new AlarmStatus(CRITICAL, 'Port #{port} is closed.');
+          }
+          return new AlarmStatus(OK, 'Port #{port} is open.');
