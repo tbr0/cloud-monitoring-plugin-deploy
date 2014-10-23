@@ -8,5 +8,5 @@
     notify: restart rackspace-monitoring-agent
 
   - name: Copy port_check.yaml
-    copy: src=port_check.yaml dest=/etc/rackspace-monitoring-agent.conf.d/
+    template: src=port_check.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/port_check.yaml
     notify: restart rackspace-monitoring-agent

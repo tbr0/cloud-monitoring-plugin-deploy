@@ -5,3 +5,6 @@
   roles:
     - common 
     - { role: port_check, tags: port_check }
+  vars:
+    host: localhost
+    port: 80

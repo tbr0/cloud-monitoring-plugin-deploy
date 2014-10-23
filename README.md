@@ -1,4 +1,4 @@
-An ansible playbook to install Cloud Monitoring plugins on the localhost.
+An ansible playbook to install Cloud Monitoring plugins on the localhost.   This guide will not go into how to install ansible or git for your system.
 
 Instructions:
 

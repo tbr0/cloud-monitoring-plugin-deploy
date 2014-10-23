@@ -5,8 +5,9 @@ period      : 60
 timeout     : 30
 details     :
     file    : port_check.py
+    args    : [{{host}},{{port}}]
 alarms      :
-    alarm1  :
+    alarm-{{port}}  :
         label                 : Port Check [{{port}}] Alarm
         notification_plan_id  : npTechnicalContactsEmail
         criteria              : |
