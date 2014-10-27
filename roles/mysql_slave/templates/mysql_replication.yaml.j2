@@ -1,5 +1,5 @@
 type        : agent.plugin
-label       : AGENT - MySQL Replication
+label       : '[AGENT] MySQL Replication'
 disabled    : false
 period      : 60
 timeout     : 30
@@ -7,7 +7,7 @@ details     :
     file    : mysql_replication.py
 alarms      :
     alarm1  :
-        label                 : AGENT - MySQL Replication
+        label                 : '[AGENT] MySQL Replication'
         notification_plan_id  : {{notification_plan}} 
         criteria              : |
           if (metric['SLAVE_STATUS'] != 'ONLINE') {

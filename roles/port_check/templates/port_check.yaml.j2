@@ -1,5 +1,5 @@
 type        : agent.plugin
-label       : AGENT - Port Check - {{host}}:{{port}}
+label       : '[AGENT] Port Check - {{host}}:{{port}}'
 disabled    : false
 period      : 60
 timeout     : 30
@@ -8,7 +8,7 @@ details     :
     args    : [{{host}},{{port}}]
 alarms      :
     alarm-{{host}}-{{port}}  :
-        label                 : AGENT - Port Check - {{host}}:{{port}}
+        label                 : '[AGENT] Port Check - {{host}}:{{port}}'
         notification_plan_id  : {{notification_plan}} 
         criteria              : |
           if (metric['status'] != 'OPEN') {
