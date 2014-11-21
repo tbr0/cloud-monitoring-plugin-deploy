@@ -1,3 +1,6 @@
+  - name: Update the agent to the latest version 
+    apt: name=rackspace-monitoring-agent state=latest update_cache=yes
+
   - name: Check /etc/rackspace-monitoring-agent.conf.d/
     file: dest=/etc/rackspace-monitoring-agent.conf.d/ state=directory owner=root group=root
 
