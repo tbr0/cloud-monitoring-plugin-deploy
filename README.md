@@ -14,6 +14,7 @@ Default command:
 | ---------- | -------- |
 | holland_mysqldump | `holland_mysqldump.yml`
 | mysql_slave | `mysql_slave.yml`
+| lsyncd_status | `lsyncd_status.yml`
 | port_check | `port_check.yml -e port=8080` <br> `port_check.yml -e '{"host":"rackspace.com","port":"80"}'`
 
 ###Modifiers

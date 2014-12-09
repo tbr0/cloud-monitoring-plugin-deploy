@@ -3,6 +3,6 @@
   user: root
   roles:
     - common 
-    - { role: lsyncd_check, tags: lsyncd_check }
+    - { role: lsyncd_status, tags: lsyncd_status }
   vars:
     host: localhost
