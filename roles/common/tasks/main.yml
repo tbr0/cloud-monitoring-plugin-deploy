@@ -1,5 +1,10 @@
-  - name: Update the agent to the latest version 
+  - name: Update the agent to the latest version (Debian) 
     apt: name=rackspace-monitoring-agent state=latest update_cache=yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Update the agent to the latest version (RHEL)
+    yum: name=rackspace-monitoring-agent state=latest
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
   - name: Check /etc/rackspace-monitoring-agent.conf.d/
     file: dest=/etc/rackspace-monitoring-agent.conf.d/ state=directory owner=root group=root

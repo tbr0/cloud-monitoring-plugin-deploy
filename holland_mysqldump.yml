@@ -1,7 +1,6 @@
 ---
 - hosts: all
   user: root
-  gather_facts: false
   roles:
     - common 
     - { role: holland_mysqldump, tags: holland_mysqldump }
