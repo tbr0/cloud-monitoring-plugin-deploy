@@ -8,5 +8,5 @@
     notify: restart rackspace-monitoring-agent
 
   - name: Copy lsyncd_status.yaml 
-    template: src=lsyncd_status.yaml dest=/etc/rackspace-monitoring-agent.conf.d/lsyncd_status.yaml
+    template: src=lsyncd_status.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/lsyncd_status.yaml
     notify: restart rackspace-monitoring-agent
