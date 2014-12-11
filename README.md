@@ -4,9 +4,6 @@ Default command:
 
 ```ansible-playbook -i hosts <playbook>```
 
-###Assumptions
-It is assumed that you have the ability to run Ansible.  That may require installation of appropriate packages for the operating system or Python.
-
 ###Available playbooks 
 - holland_mysqldump.yml
 - lsyncd_status.yml
@@ -20,6 +17,12 @@ It is assumed that you have the ability to run Ansible.  That may require instal
 | lsyncd_status | `lsyncd_status.yml`
 | mysql_slave | `mysql_slave.yml`
 | port_check | `port_check.yml -e port=8080` <br> `port_check.yml -e '{"host":"rackspace.com","port":"80"}'`
+
+###Assumptions
+It is assumed that you have the ability to run Ansible.  That may require installation of appropriate packages for the operating system or Python.
+
+###Operating systems
+Should work fine on Debian+Ubuntu and RHEL+CentOS.
 
 ###Modifiers
 You can edit the `group_vars/all` file if you want to change any of the defaults.  
