@@ -22,12 +22,12 @@ Default command:
 It is assumed that you have the ability to run Ansible.  That may require installation of appropriate packages for the operating system or Python.
 
 ###Operating systems
-Should work fine on Debian+Ubuntu and RHEL+CentOS.
+Functionality has been tested on Debian+Ubuntu and RHEL+CentOS.
 
 ###Modifiers
 You can edit the `group_vars/all` file if you want to change any of the defaults.  
-- Notification Plan will default to `npManaged`, but you can change it to `npTechnicalContactsEmail` or any notification plan that is created for the account.
-- 
+- The Notification Plan will default to `npManaged`, but you can change it to `npTechnicalContactsEmail` or any notification plan that is created for the account.
+
 ###Troubleshooting
 Some tips to help you in the right direction.
 - The Rackspace Cloud Monitoring Agent log file can be found in /var/log/rackspace-monitoring-agent.log.
