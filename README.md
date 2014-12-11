@@ -29,8 +29,10 @@ You can edit the `group_vars/all` file if you want to change any of the defaults
 - Notification Plan will default to `npManaged`, but you can change it to `npTechnicalContactsEmail` or any notification plan that is created for the account.
 - 
 ###Troubleshooting
+Some tips to help you in the right direction.
 - The Rackspace Cloud Monitoring Agent log file can be found in /var/log/rackspace-monitoring-agent.log.
 - Configuration files will exist in /etc/rackspace-monitoring-agent.conf.d/.
+- The npManaged notification plan only exists for Managed Accounts, make sure you update this if you are an infrastructure account.
 
 ###References:
 - [Rackspace Cloud Monitorin API - Agent Configuration File](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/install-configure.html#agent-config-file)
