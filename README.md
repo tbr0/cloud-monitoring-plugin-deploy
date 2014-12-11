@@ -19,7 +19,7 @@ Default command:
 | port_check | `port_check.yml -e port=8080` <br> `port_check.yml -e '{"host":"rackspace.com","port":"80"}'`
 
 ###Assumptions
-It is assumed that you have the ability to run Ansible.  That may require installation of appropriate packages for the operating system or Python.
+It is assumed that you have the ability to run Ansible.  That may require installation of appropriate packages for the operating system or Python modules.
 
 ###Operating systems
 Functionality has been tested on Debian+Ubuntu and RHEL+CentOS.
