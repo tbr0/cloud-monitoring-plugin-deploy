@@ -8,5 +8,5 @@
     notify: restart rackspace-monitoring-agent
 
   - name: Copy multi_curl_check.yaml
-    template: src=multi_curl_check.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/multi_curl_{{url}}.yaml
+    template: src=multi_curl_check.yaml.j2 dest=/etc/rackspace-monitoring-agent.conf.d/multi_curl_check.yaml
     notify: restart rackspace-monitoring-agent
