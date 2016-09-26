@@ -1,5 +1,5 @@
 type        : agent.plugin
-label       : '[AGENT] Multiple Sites Check - {{url}}'
+label       : '[AGENT] Multiple Sites Check'
 disabled    : false
 period      : 60
 timeout     : 30
@@ -7,8 +7,8 @@ details     :
     file    : multi_curl_check.sh
     args    : [{{file}}]
 alarms      :
-    alarm-{{url}}  :
-        label                 : '[AGENT] Multiple Sites Check - {{url}}'
+    alarm-multiple_sites_check  :
+        label                 : '[AGENT] Multiple Sites Check'
         notification_plan_id  : {{notification_plan}} 
         criteria              : |
           if (metric['status'] != 'OPEN') {

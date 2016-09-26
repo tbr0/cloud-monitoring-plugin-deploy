@@ -70,15 +70,19 @@ for i in $(awk -F"," '{print $1 "," $2}' output.csv)
             all_sites_status_ok=1
         else
             all_sites_status_not_ok=1
-            message="${message}\n${url} returning status code ${status_code}"
+            if [ "$message" ]
+            then
+                message="${message},${url} returning status code ${status_code}"
+            else
+                message="${url} returning status code ${status_code}"
+            fi
         fi
     done
 
 if [ $all_sites_status_not_ok ]
     then 
-        echo -n "Not all sites status ok."
-        echo -e "${message}"
-    else echo "All sites status ok."
+        echo -e "status err ${message}"
+    else echo "status OK"
 fi
 
 rm -f output.csv
