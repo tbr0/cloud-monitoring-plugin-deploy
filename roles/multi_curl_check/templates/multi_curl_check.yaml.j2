@@ -1,0 +1,17 @@
+type        : agent.plugin
+label       : '[AGENT] Multiple Sites Check - {{url}}'
+disabled    : false
+period      : 60
+timeout     : 30
+details     :
+    file    : multi_curl_check.sh
+    args    : [{{file}}]
+alarms      :
+    alarm-{{url}}  :
+        label                 : '[AGENT] Multiple Sites Check - {{url}}'
+        notification_plan_id  : {{notification_plan}} 
+        criteria              : |
+          if (metric['status'] != 'OPEN') {
+            return new AlarmStatus(CRITICAL, 'Port #{port} is closed.');
+          }
+          return new AlarmStatus(OK, 'Port #{port} is open.');

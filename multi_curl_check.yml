@@ -1,0 +1,8 @@
+---
+- hosts: all
+  user: root
+  roles:
+    - common 
+    - { role: multi_curl_check, tags: multi_curl_check }
+  vars:
+    host: localhost
