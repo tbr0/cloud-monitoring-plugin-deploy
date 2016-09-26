@@ -44,34 +44,54 @@ function extract_header()
     [ -n "$ret" ] && echo -n $ret
 }
 
-response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" $1 2>&1)
+function get_response()
+{
+    response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" $1 2>&1)
+    #[ -n "${ret}" ] && echo ${ret}
+}
 
-if [ $? -eq 0 ]
-then
-  echo "status ok connection made"
-  echo "metric code string $(extract_header "$response" Response-Code)"
-  echo "metric time_connect double $(extract_header "$response" Time-Connect) seconds"
-  echo "metric time_total double $(extract_header "$response" Time-Total) seconds"
-  echo "metric url string $(extract_header "$response" URL-Effective)"
+file="sites_list.txt"
 
-  etag=$(extract_header "$response" ETag)
-  [ -n "$etag" ] && echo "metric etag string $etag"
+for i in $(cat ${file})
+    do
+        get_response $i
+        #echo "$response" #| grep "Response-Code" | cut -d' ' -f 2- | tr -d '\n\r'
+        echo -n "$(extract_header "$response" Response-Code)," >> output.csv
+        echo -n "$(extract_header "$response" Time-Connect)," >> output.csv
+        echo -n "$(extract_header "$response" Time-Total)," >> output.csv
+        echo "$(extract_header "$response" URL-Effective)" >> output.csv
+        #remove statistics from our status line, only keep the error
+        #echo "status $(echo $response | awk -F'000 ' '{$0=$1}1' )" >> output.csv
+    done
 
-  length=$(extract_header "$response" Content-Length)
-  [ -n "$length" ] && echo "metric content_length uint32 $length bytes"
+#response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" $1 2>&1)
 
-  modified=$(extract_header "$response" Last-Modified)
-  if [ -n "$modified" ]
-  then
-      modified_seconds=$(date --date="$modified" +"%s")
-      age=$(($(date +"%s") - $modified_seconds))
-      echo "metric page_age uint64 $age seconds"
-  fi
-
-  exit 0
-else
-  #remove statistics from our status line, only keep the error
-  echo "status $(echo $response | awk -F'000 ' '{$0=$1}1' )"
-fi
-
-exit 1
+#if [ $? -eq 0 ]
+#then
+#  echo "status ok connection made"
+#  echo "metric code string $(extract_header "$response" Response-Code)"
+#  echo "metric time_connect double $(extract_header "$response" Time-Connect) seconds"
+#  echo "metric time_total double $(extract_header "$response" Time-Total) seconds"
+#  echo "metric url string $(extract_header "$response" URL-Effective)"
+#
+#  etag=$(extract_header "$response" ETag)
+#  [ -n "$etag" ] && echo "metric etag string $etag"
+#
+#  length=$(extract_header "$response" Content-Length)
+#  [ -n "$length" ] && echo "metric content_length uint32 $length bytes"
+#
+#  modified=$(extract_header "$response" Last-Modified)
+#  if [ -n "$modified" ]
+#  then
+#      modified_seconds=$(date --date="$modified" +"%s")
+#      age=$(($(date +"%s") - $modified_seconds))
+#      echo "metric page_age uint64 $age seconds"
+#  fi
+#
+#  exit 0
+#else
+#  #remove statistics from our status line, only keep the error
+#  echo "status $(echo $response | awk -F'000 ' '{$0=$1}1' )"
+#fi
+#
+#exit 1
