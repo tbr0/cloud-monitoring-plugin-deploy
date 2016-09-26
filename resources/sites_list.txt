@@ -1,2 +1,7 @@
 http://test.com
 http://google.com
+http://notrealbarfbarf.com
+http://rackspace.com
+http://anotherfakesire.com
+http://thisisfake.com
+http://500error.com

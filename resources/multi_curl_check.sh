@@ -46,24 +46,42 @@ function extract_header()
 
 function get_response()
 {
-    response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" $1 2>&1)
-    #[ -n "${ret}" ] && echo ${ret}
+    response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" ${1} 2>&1)
 }
 
 file="sites_list.txt"
 
 for i in $(cat ${file})
     do
-        get_response $i
-        #echo "$response" #| grep "Response-Code" | cut -d' ' -f 2- | tr -d '\n\r'
-        echo -n "$(extract_header "$response" Response-Code)," >> output.csv
-        echo -n "$(extract_header "$response" Time-Connect)," >> output.csv
-        echo -n "$(extract_header "$response" Time-Total)," >> output.csv
-        echo "$(extract_header "$response" URL-Effective)" >> output.csv
-        #remove statistics from our status line, only keep the error
-        #echo "status $(echo $response | awk -F'000 ' '{$0=$1}1' )" >> output.csv
+        get_response ${i}
+        echo -n "${i}," >> output.csv
+        echo -n "$(extract_header "${response}" Response-Code)," >> output.csv
+        echo -n "$(extract_header "${response}" Time-Connect)," >> output.csv
+        echo -n "$(extract_header "${response}" Time-Total)," >> output.csv
+        echo "$(extract_header "${response}" URL-Effective)" >> output.csv
     done
 
+for i in $(awk -F"," '{print $1 "," $2}' output.csv)
+    do
+        url=$(echo ${i} | cut -d"," -f1)
+        status_code=$(echo ${i} | cut -d"," -f2)
+        if [ ${status_code} -eq "200" ]
+        then 
+            all_sites_status_ok=1
+        else
+            all_sites_status_not_ok=1
+            message="${message}\n${url} returning status code ${status_code}"
+        fi
+    done
+
+if [ $all_sites_status_not_ok ]
+    then 
+        echo -n "Not all sites status ok."
+        echo -e "${message}"
+    else echo "All sites status ok."
+fi
+
+rm -f output.csv
 #response=$(curl -sS -L -f -I -w "Response-Code: %{response_code}\nTime-Connect: %{time_connect}\nTime-Total: %{time_total}\nURL-Effective: %{url_effective}\n" $1 2>&1)
 
 #if [ $? -eq 0 ]
