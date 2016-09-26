@@ -10,7 +10,7 @@ alarms      :
         label                 : '[AGENT] Multiple Sites Check'
         notification_plan_id  : {{notification_plan}} 
         criteria              : |
-          if (metric['status'] != 'OK') {
-            return new AlarmStatus(CRITICAL, '#{status}');
+          if (metric['message'] != 'OK') {
+            return new AlarmStatus(CRITICAL, '#{message}');
           }
           return new AlarmStatus(OK, 'All sites ok.');
