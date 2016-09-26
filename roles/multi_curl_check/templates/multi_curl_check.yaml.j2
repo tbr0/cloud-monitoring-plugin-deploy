@@ -5,13 +5,12 @@ period      : 60
 timeout     : 30
 details     :
     file    : multi_curl_check.sh
-    args    : [{{file}}]
 alarms      :
     alarm-multiple_sites_check  :
         label                 : '[AGENT] Multiple Sites Check'
         notification_plan_id  : {{notification_plan}} 
         criteria              : |
-          if (metric['status'] != 'OPEN') {
-            return new AlarmStatus(CRITICAL, 'Port #{port} is closed.');
+          if (metric['status'] != 'OK') {
+            return new AlarmStatus(CRITICAL, '#{status}');
           }
-          return new AlarmStatus(OK, 'Port #{port} is open.');
+          return new AlarmStatus(OK, 'All sites ok.');

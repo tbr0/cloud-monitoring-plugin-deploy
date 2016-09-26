@@ -1,10 +1,6 @@
-  - name: "Check if url variable exists"
-    fail: msg="Bailing out. You are required to set the url." 
-    when: url is not defined
-
-  - name: Download port_check.py 
+  - name: Download mutli_curl_check.sh
     get_url: 
-      url: https://raw.githubusercontent.com/racker/rackspace-monitoring-agent-plugins-contrib/master/multi_curl_check.sh
+      url: https://raw.githubusercontent.com/tbr0/cloud-monitoring-plugin-deploy/master/resources/multi_curl_check.sh
       dest: /usr/lib/rackspace-monitoring-agent/plugins/multi_curl_check.sh
       mode: 0744
       owner: root
